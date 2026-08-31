@@ -13,7 +13,7 @@ The Telco Customer Churn dataset contains demographic information, account detai
 | Model | Key Assumptions Checked | Evidence | Concern |
 |---|---|---|---|
 | Linear regression |  |  |  |
-| Logistic regression |  |  |  |
+| Logistic regression |Minimal multicollinearity among predictors  | Applied drop='first' in OneHotEncoder to avoid the dummy variable trap  | Low concern for categorical multicollinearity. Moderate concern for the assumption of linearity between continuous variables |
 | GAM |  |  |  |
 
 ## Model Comparison
@@ -21,7 +21,7 @@ The Telco Customer Churn dataset contains demographic information, account detai
 | Model | Performance Evidence | Interpretability Strength | Interpretability Weakness |
 |---|---|---|---|
 | Linear regression |  |  |  |
-| Logistic regression |  |  |  |
+| Logistic regression | ROC-AUC: 84.22%, Accuracy: 80.70%, F1-Score: 0.607 (at threshold 0.5) | High Feature importance and direction are clearly visible through coefficients  | Assumes a linear relationship between features and log-odds. It cannot naturally capture complex, non-linear feature interactions without manual feature engineering. |
 | GAM |  |  |  |
 
 ## Recommendation
