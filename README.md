@@ -5,7 +5,7 @@
 
 ## Dataset
 
-The Telco Customer Churn dataset contains demographic information, account details (like contract and charges), and subscribed services for telecommunication customers.
+The Telco Customer Churn dataset contains information about 7,043 telecommunications customers and whether they left the company. The goal is to understand which customer characteristics are associated with churn, where Churn = 1 means the customer left and Churn = 0 means the customer stayed. The dataset includes demographic information such as gender, senior-citizen status, partner, and dependents, as well as service information such as internet service, phone service, technical support, and streaming services. It also contains account information such as tenure, contract type, payment method, monthly charges, and total charges. For this analysis, the data was cleaned by removing 11 records with missing TotalCharges, leaving 7,032 customers. The dataset is used to build and compare interpretable models that can help a telecom company understand and predict customer churn.
 
 
 ## Assumption Checks
