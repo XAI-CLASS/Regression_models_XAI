@@ -31,13 +31,13 @@ The Telco Customer Churn dataset contains information about 7,043 telecommunicat
 
 ## Recommendation
 
-Recommended model:
+Recommended model: Generalized Additive Model (GAM)
 
-Why this model:
+Why this model: It offers the best balance of performance and interpretability for this specific dataset. It outperformed Logistic Regression in distinguishing churners (ROC-AUC of 86.16% vs. 84.22%). More importantly, it successfully captures the real-world, non-linear relationships in the data (like the sharp drop-off in churn risk after the first few months of tenure) without forcing a strict straight line
 
-What the company can responsibly conclude:
+What the company can responsibly conclude: We can confidently conclude that churn is heavily concentrated among new customers (low tenure). Customers with high monthly charges are also at a significantly elevated risk.  
 
-What the company should not conclude yet:
+What the company should not conclude yet: company should not conclude that reduced monthly charges would neccesarily reduce churn.
 
-One next analysis we would run:
+One next analysis we would run: Try and figure out how to include more inputs and may also use diffrent relevant models or trees.
 
