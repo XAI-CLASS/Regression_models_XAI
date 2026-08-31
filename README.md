@@ -1,7 +1,7 @@
 # Regression_models_XAI
 # Team Name: Regressor
 
-## Contributors : Tim Force, Vinodhini Rajasekhar, Mauzam Shafi Bhat
+## Contributors : Tim Force, Vinodhini Rajasekhar, Mauzam Shafi Bhat (mb948)
 
 ## Dataset
 
