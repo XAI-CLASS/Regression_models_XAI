@@ -14,7 +14,10 @@ The Telco Customer Churn dataset contains information about 7,043 telecommunicat
 |---|---|---|---|
 | Linear regression | Linearity, constant variance, normality of residuals, multicollinearity, independence | Scatterplots of tenure and MonthlyCharges vs. Churn, residuals vs. predicted values, Q-Q plot, correlation matrix, and VIF | Several concerns: Churn is binary, residuals are not normally distributed, residual variance is not constant, and tenure/TotalCharges show relatively high VIF |
 | Logistic regression |Minimal multicollinearity among predictors  | Applied drop='first' in OneHotEncoder to avoid the dummy variable trap  | Low concern for categorical multicollinearity. Moderate concern for the assumption of linearity between continuous variables |
-| GAM |  |  |  |
+| GAM | Additivity (features act independently without unmodeled interactions), continuity/smoothness of numerical features, absence of severe multicollinearity among splines | KDE distribution plots by Churn for continuous features (`tenure`, `MonthlyCharges`, `TotalCharges`), and continuous feature correlation matrix | Strong evidence of non-linear relationships in `tenure` and `MonthlyCharges` supporting spline use. Moderate collinearity between `tenure` and `TotalCharges` ($r\approx 0.83$) tests the additivity assumption.|
+ 
+
+
 
 ## Model Comparison
 
@@ -22,7 +25,9 @@ The Telco Customer Churn dataset contains information about 7,043 telecommunicat
 |---|---|---|---|
 | Linear regression | MSE = 0.1459, R² = 0.2522. The model explains about 25.2% of the variation in Churn. | Easy to understand. Coefficients show the direction and relative strength of each feature's association with predicted Churn. | Churn is binary (0/1), so linear regression is not ideal for probability prediction. Coefficients should not be interpreted as exact changes in true churn probability. |
 | Logistic regression | ROC-AUC: 84.22%, Accuracy: 80.70%, F1-Score: 0.607 (at threshold 0.5) | High Feature importance and direction are clearly visible through coefficients  | Assumes a linear relationship between features and log-odds. It cannot naturally capture complex, non-linear feature interactions without manual feature engineering. |
-| GAM |  |  |  |
+| GAM | Accuracy: 80.98% (threshold 0.5), ROC-AUC: 86.16%, MSE = 0.1300, R² = 0.3320. The model explains about 33.2% of the variation in Churn. | High visual interpretability through Partial Dependence Plots (PDPs). Captures non-linear curves for continuous features (early tenure drop-off, price escalation) without losing individual feature transparency. | Standard GAMs assume strict additivity and miss multi-way categorical interactions (e.g., Month-to-Month $\times$ Fiber Optic)unless manually specified. Continuous LinearGAM outputs are not naturally bounded in [0, 1].|
+
+
 
 ## Recommendation
 
